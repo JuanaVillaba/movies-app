@@ -1,18 +1,17 @@
 import React from 'react';
 import Screen from '@/components/ui/Screen';
-import { View } from 'react-native';
 import {Card, Text} from 'react-native-paper';
 import { useLocalSearchParams, Stack } from 'expo-router';
 import { useEffect, useState } from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, ScrollView } from 'react-native';
 
 export default function DetallesMoviesScreen(){
     const [movie, setMovie]= useState<any>(null);
     const { movies } = useLocalSearchParams();
         const styles = StyleSheet.create({
           imagen: {
-            width: 500,
-            height: 700,
+            width: 300,
+            height: 500,
             borderRadius: 8,
             alignSelf: "center",
           }, 
@@ -31,8 +30,9 @@ export default function DetallesMoviesScreen(){
     return(
     <Screen>
       <Stack.Screen options= {{title: movie?.title}}/>
+      <ScrollView>
       <Card style={{ margin: 10 }}>
-        {/* Usamos los datos que guardamos en el estado 'movie' */}
+        {}
         <Card.Cover source={{ uri: movie?.image_url }} resizeMode="cover" style={styles.imagen}/>
         <Card.Title 
           title={`Calificacion: ⭐ ${movie?.stars}`} 
@@ -45,6 +45,7 @@ export default function DetallesMoviesScreen(){
           </Text>
         </Card.Content>
       </Card>
+      </ScrollView>
     </Screen>
     )
 }

@@ -65,7 +65,7 @@ export default function MoviesScreen(){
     
     return(
     <Screen>
-      <Stack.Screen options= {{title:"Peliculas"}}/>
+      
         <ScrollView contentContainerStyle={styles.container}>
         <Text variant="headlineMedium" style={styles.title}>Películas Populares</Text>
         {movies.map((pelicula) => (
